@@ -248,7 +248,7 @@ def prepareEmail(contact_list):
 
 
 if __name__ == '__main__':
-    port = 8000
+    port = int(os.environ.get('PORT', 33507))
     print("Starting app on port %d" % port)
     app.run(debug=False, port=port, host='0.0.0.0')
 '''if __name__ == "__main__":
