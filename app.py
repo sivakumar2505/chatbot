@@ -133,7 +133,7 @@ def processRequest(req):
         return_tweet = twitter_api_link.twitter_api()
         print(return_tweet)
         data =[]
-        for i in len(return_tweet):
+        for i in return_tweet['links']:
            data .append({
                 "text": {
                     "text": [
