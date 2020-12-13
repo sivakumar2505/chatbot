@@ -156,13 +156,13 @@ def processRequest(req):
            data .append({
                 "text": {
                     "text": [
-                        i
+                        i['url']
                     ]
 
                 }
             })
 
-
+        print(data)
         return {
 
             "fulfillmentMessages": data
