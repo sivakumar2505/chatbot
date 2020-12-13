@@ -8,7 +8,7 @@ import os
 from saveConversation import Conversations
 from DataRequests import MakeApiRequests
 from sendEmail import EMailClient
-from twitter_api import twitter_api_link
+import twitter_api_link
 from pymongo import MongoClient
 
 app = Flask(__name__)  # initialising the flask app with the name 'app'
@@ -129,7 +129,7 @@ def processRequest(req):
             ]
         }
     elif intent == "twitter_comments":
-        return_tweet = twitter_api_link.twitter_api()
+        return_tweet = twitter_api()
         data =[]
         for i in len(return_tweet):
            data .append({
