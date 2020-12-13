@@ -8,6 +8,7 @@ import os
 from saveConversation import Conversations
 from DataRequests import MakeApiRequests
 from sendEmail import EMailClient
+from twitter_api import twitter_api_link
 from pymongo import MongoClient
 
 app = Flask(__name__)  # initialising the flask app with the name 'app'
@@ -86,9 +87,9 @@ def processRequest(req):
     elif intent == "send_report_to_email":
         fulfillmentText = result.get("fulfillmentText")
       #  log.saveConversations(sessionID, "Sure send email", fulfillmentText, intent, db)
-        val = log.getcasesForEmail("country", "", db)
-        print("===>",val)
-        prepareEmail([cust_name, cust_contact, cust_email,val])
+      #  val = log.getcasesForEmail("country", "", db)
+        #print("===>",val)
+      #  prepareEmail([cust_name, cust_contact, cust_email,val])
     elif intent == "totalnumber_cases":
         fulfillmentText = makeAPIRequest("world")
 
@@ -127,6 +128,29 @@ def processRequest(req):
                 }
             ]
         }
+    elif intent == "twitter_comments":
+        return_tweet = twitter_api_link.twitter_api()
+        data =[]
+        for i in len(return_tweet):
+           data .append({
+                "text": {
+                    "text": [
+                        i
+                    ]
+
+                }
+            })
+
+
+        return {
+
+            "fulfillmentMessages": data
+        }
+
+
+
+
+
 
     elif intent == "covid_searchstate":
 
@@ -206,7 +230,7 @@ def processRequest(req):
 
                     }
                 },
-                {
+                 {
                     "text": {
                         "text": [
                             "Do you want me to send the detailed report to your e-mail address? Type.. \n 1. Sure \n 2. Not now "
@@ -247,8 +271,11 @@ def prepareEmail(contact_list):
     mailclient.sendEmail(contact_list)
 
 
+
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 33507))
+
     print("Starting app on port %d" % port)
     app.run(debug=False, port=port, host='0.0.0.0')
 '''if __name__ == "__main__":
