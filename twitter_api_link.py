@@ -12,5 +12,7 @@ def twitter_api():
     data_set = json.loads(data.text)
     for i in data_set['data']:
         urls.append('https://twitter.com/' + i['author_id'] + '/status/' + i['id'])
-    return urls
+    output = {'links':urls}
+    return output
+
 
