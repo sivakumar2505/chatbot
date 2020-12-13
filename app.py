@@ -152,7 +152,7 @@ def processRequest(req):
     elif intent == "live_news":
         news_link = news.live_news()
         data =[]
-        for i in news_link['link'] :
+        for i in news_link['links'] :
            data .append({
                 "text": {
                     "text": [
