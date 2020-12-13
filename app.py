@@ -10,6 +10,7 @@ from DataRequests import MakeApiRequests
 from sendEmail import EMailClient
 import twitter_api_link
 from pymongo import MongoClient
+import news
 
 app = Flask(__name__)  # initialising the flask app with the name 'app'
 
@@ -134,6 +135,24 @@ def processRequest(req):
         print(return_tweet)
         data =[]
         for i in return_tweet['links']:
+           data .append({
+                "text": {
+                    "text": [
+                        i
+                    ]
+
+                }
+            })
+
+
+        return {
+
+            "fulfillmentMessages": data
+        }
+        elif intent == "live_news":
+        news_link = news.news_live()
+        data =[]
+        for i in news_link['link'] :
            data .append({
                 "text": {
                     "text": [
