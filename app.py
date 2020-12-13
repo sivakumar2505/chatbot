@@ -129,8 +129,9 @@ def processRequest(req):
             ]
         }
     elif intent == "twitter_comments":
-        print('Twitter In')
+        print('Twitter Inn')
         return_tweet = twitter_api()
+        print(return_tweet)
         data =[]
         for i in len(return_tweet):
            data .append({
