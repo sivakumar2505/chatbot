@@ -1,2 +1,2 @@
 # chatbot
-Covid-19 chatbot using Google Dialogflow
+Corana19 chatbot using Google Dialogflow
