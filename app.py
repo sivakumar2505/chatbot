@@ -149,7 +149,7 @@ def processRequest(req):
 
             "fulfillmentMessages": data
         }
-        elif intent == "live_news":
+    elif intent == "live_news":
         news_link = news.news_live()
         data =[]
         for i in news_link['link'] :
