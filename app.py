@@ -255,8 +255,9 @@ def processRequest(req):
     #client = MongoClient("mongodb+srv://username:passwrod@cluster0-replace with you URL.mongodb.net/test?retryWrites=true&w=majority")
     #return client.get_database('covid19DB')
 @app.route('/twitterapi', methods=['GET'])
+@cross_origin()
 def twitter():
-    return twitter_api()
+    return twitter_api_link.twitter_api()
 
 def makeAPIRequest(query):
     api = MakeApiRequests.Api()
