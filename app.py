@@ -129,6 +129,7 @@ def processRequest(req):
             ]
         }
     elif intent == "twitter_comments":
+        print('Twitter In')
         return_tweet = twitter_api()
         data =[]
         for i in len(return_tweet):
