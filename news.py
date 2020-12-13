@@ -1,12 +1,8 @@
-from GoogleNews import GoogleNews
-
-
-def news_live():
-    googlenews = GoogleNews()
-    googlenews = GoogleNews(lang='en')
-    googlenews.set_period('1d')
-    googlenews.set_encode('utf-8')
-    googlenews.get_news('corona virus')
-    links = googlenews.get_links()
-    googlenews.clear()
-    return {'links':links[:3]}
+import requests
+import json
+def live_news():
+    url = "http://newsapi.org/v2/everything?q=corona virus&apiKey=985a8cc4c2dc4e5b8ff2a295884a166f"
+    response =requests.get(url)
+    data =(json.loads(response.text))
+    urls = data['articles']
+    return {'links':urls[:3]}
