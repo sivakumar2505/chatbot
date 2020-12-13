@@ -1,5 +1,5 @@
 
-# Corana Information  Chatbot using DialogFlow,Python/Flask Integrated with Telegram, Twitter and Google News deployed on Heroku
+# Corona Information  Chatbot using DialogFlow,Python/Flask Integrated with Telegram, Twitter and Google News deployed on Heroku
 This chatbot developed using Dialoglow,python,flask,MongoDB and deployed on Telegram. search @bestcovid19_bot on telegram app
 BestCovid-19 Bot can give answers of all of your queries related to covid-19 also it can -
 
